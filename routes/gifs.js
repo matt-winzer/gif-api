@@ -40,7 +40,7 @@ router.post('/', (req, res, next) => {
       .insert(req.body)
       .returning('*')
       .then(inserted => {
-        res.status(201).json({inserted: inserted[0]})
+        res.status(201).json({created: inserted[0]})
       })
       .catch(next)
     : res.status(422).json({error: 'Invalid input', message: error.details[0].message, input: value})
